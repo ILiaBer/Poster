@@ -1,11 +1,33 @@
 package domain;
 
+import lombok.Data;
 
-
+@Data
 public class PosterManager {
+    private int maxLastFilm = 10;
 
+    public PosterManager(int maxLastFilm) {
+        this.maxLastFilm = maxLastFilm;
+    }
 
     private PurchaseItem[] items = new PurchaseItem[0];
+
+    public void shouldTakeTenFilms(PurchaseItem item) {
+        PurchaseItem[] heh = new PurchaseItem[items.length];
+        int length= items.length + 1;
+        if (length == maxLastFilm) {
+            for (int i = 0; i < items.length; i++) {
+                heh[i] = items[i];
+            }
+        }
+        else if(length > maxLastFilm){
+            for (int i = 0; i < maxLastFilm; i++) {
+                heh[i] = items[i];
+            }
+        }
+        else return;
+    }
+
 
     public void add(PurchaseItem item) {
         // создаём новый массив размером на единицу больше
@@ -23,30 +45,6 @@ public class PosterManager {
         items = tmp;
     }
 
-    public PurchaseItem[] getAll() {
-        PurchaseItem[] result = new PurchaseItem[items.length];
-        // перебираем массив в прямом порядке
-        // но кладём в результаты в обратном
-        for (int i = 0; i < result.length; i++) {
-            int index = items.length - i - 1;
-            result[i] = items[index];
-        }
-        return result;
-    }
 
-    // наивная реализация
-    public void removeById(int id) {
-        int length = items.length - 1;
-        PurchaseItem[] tmp = new PurchaseItem[length];
-        int index = 0;
-        for (PurchaseItem item : items) {
-            if (item.getId() != id) {
-                tmp[index] = item;
-                index++;
-            }
-        }
-        // меняем наши элементы
-        items = tmp;
-    }
 }
 
