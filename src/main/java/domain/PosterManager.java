@@ -14,32 +14,37 @@ public class PosterManager {
 
     public void shouldTakeTenFilms(PurchaseItem item) {
         PurchaseItem[] heh = new PurchaseItem[items.length];
-        int length= items.length + 1;
+        int length = items.length + 1;
         if (length == maxLastFilm) {
             for (int i = 0; i < items.length; i++) {
                 heh[i] = items[i];
             }
-        }
-        else if(length > maxLastFilm){
+        } else if (length > maxLastFilm) {
             for (int i = 0; i < maxLastFilm; i++) {
                 heh[i] = items[i];
             }
+        } else return;
+    }
+
+
+    public PurchaseItem[] shouldTakeMaxFilms() {
+        int length = items.length + 1;
+        PurchaseItem[] heh = new PurchaseItem[length];
+        if (length <= maxLastFilm) {
+            for (int i = 0; 1 < heh.length; i++) {
+                int index = items.length - i - 1;
+                heh[i] = items[index];
+            }
+            return heh;
         }
-        else return;
+        else return null;
     }
 
 
     public void add(PurchaseItem item) {
-        // создаём новый массив размером на единицу больше
         int length = items.length + 1;
         PurchaseItem[] tmp = new PurchaseItem[length];
-        // itar + tab
-        // копируем поэлементно
-        // for (int i = 0; i < items.length; i++) {
-        //   tmp[i] = items[i];
-        // }
         System.arraycopy(items, 0, tmp, 0, items.length);
-        // кладём последним наш элемент
         int lastIndex = tmp.length - 1;
         tmp[lastIndex] = item;
         items = tmp;
@@ -47,4 +52,6 @@ public class PosterManager {
 
 
 }
+
+
 
