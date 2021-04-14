@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PosterManager {
     private int maxLastFilm = 10;
+     private int userSetFilm;
 
     public PosterManager(int maxLastFilm) {
         this.maxLastFilm = maxLastFilm;
@@ -18,7 +19,14 @@ public class PosterManager {
 
     public PurchaseItem[] shouldTakeMaxFilms() {
         PurchaseItem[] result = new PurchaseItem[items.length];
-        for (int i = 0; i < maxLastFilm; i++) {
+       if (userSetFilm !=0 && userSetFilm <=10){
+           for (int i = 0; i < userSetFilm; i++) {
+               int index = items.length - i - 1;
+               result[i] = items[index];
+           }
+           return result;
+       }
+        else for (int i = 0; i < maxLastFilm; i++) {
             int index = items.length - i - 1;
             result[i] = items[index];
         }
