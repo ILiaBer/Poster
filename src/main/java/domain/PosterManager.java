@@ -25,7 +25,7 @@ public class PosterManager {
               tempLength=maxLastFilm;
         }
         PurchaseItem[] result = new PurchaseItem[tempLength];
-        for (int i = 0; i < userSetFilm; i++) {
+        for (int i = 0; i < tempLength; i++) {
             int index = result.length - i - 1;
             result[i] = items[index];
         }
