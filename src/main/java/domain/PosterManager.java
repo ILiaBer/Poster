@@ -6,13 +6,12 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class PosterManager {
-    private int maxLastFilm = 5;
+    private int maxLastFilm = 10;
     private int userSetFilm;
 
-    public PosterManager(int maxLastFilm) {
-        this.maxLastFilm = maxLastFilm;
+    public PosterManager(int userSetFilm) {
+        this.userSetFilm = userSetFilm;
     }
 
     private PurchaseItem[] items = new PurchaseItem[0];
