@@ -62,4 +62,40 @@ class PosterManagerTest {
         PurchaseItem[] expected = new PurchaseItem[]{first, second};
         assertArrayEquals(expected, manager.getItems());
     }
+
+    @Test
+    public void shouldChangeId() {
+        PurchaseItem manager = new PurchaseItem();
+        assertEquals(0, manager.getId());
+        manager.setId(5);
+        assertEquals(5, manager.getId());
+    }
+    @Test
+    public void shouldChangeProductId() {
+        PurchaseItem manager = new PurchaseItem();
+        assertEquals(0, manager.getProductId());
+        manager.setProductId(4);
+        assertEquals(4, manager.getProductId());
+    }
+    @Test
+    public void shouldChangeProductName() {
+        PurchaseItem manager = new PurchaseItem();
+        assertEquals(null, manager.getProductName());
+        manager.setProductName("Kavaki");
+        assertEquals("Kavaki", manager.getProductName());
+    }
+    @Test
+    public void shouldChangeProductPrice() {
+        PurchaseItem manager = new PurchaseItem();
+        assertEquals(0, manager.getProductPrice());
+        manager.setProductPrice(100);
+        assertEquals(100, manager.getProductPrice());
+    }
+    @Test
+    public void shouldChangeCount() {
+        PurchaseItem manager = new PurchaseItem();
+        assertEquals(0, manager.getCount());
+        manager.setCount(100);
+        assertEquals(100, manager.getCount());
+    }
 }

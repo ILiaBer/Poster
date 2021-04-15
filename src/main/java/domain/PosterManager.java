@@ -1,10 +1,9 @@
 package domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+
 import lombok.NoArgsConstructor;
 
-@Data
+
 @NoArgsConstructor
 public class PosterManager {
     private int maxLastFilm = 10;
@@ -15,6 +14,14 @@ public class PosterManager {
     }
 
     private PurchaseItem[] items = new PurchaseItem[0];
+
+    public PurchaseItem[] getItems() {
+        return items;
+    }
+
+    public void setItems(PurchaseItem[] items) {
+        this.items = items;
+    }
 
     public PurchaseItem[] shouldTakeMaxFilms() {
         int tempLength = items.length;
