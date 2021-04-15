@@ -19,20 +19,17 @@ public class PosterManager {
     public PurchaseItem[] shouldTakeMaxFilms() {
         int tempLength = items.length;
         if (userSetFilm > 0) {
-             tempLength=userSetFilm;
+            tempLength = userSetFilm;
         } else {
-              tempLength=maxLastFilm;
+            tempLength = maxLastFilm;
         }
         PurchaseItem[] result = new PurchaseItem[tempLength];
         for (int i = 0; i < tempLength; i++) {
             int index = result.length - i - 1;
             result[i] = items[index];
         }
-            return result;
-
-
+        return result;
     }
-
 
     public void add(PurchaseItem item) {
         int length = items.length + 1;

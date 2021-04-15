@@ -32,9 +32,10 @@ class PosterManagerTest {
         manager.add(tenth);
         manager.add(eleventh);
         PurchaseItem[] actual = manager.shouldTakeMaxFilms();
-        PurchaseItem[] expected = new PurchaseItem[]{tenth,ninth,eight,seventh,sixth,fifth,fourth,third,second,first};
+        PurchaseItem[] expected = new PurchaseItem[]{tenth, ninth, eight, seventh, sixth, fifth, fourth, third, second, first};
         assertArrayEquals(expected, actual);
     }
+
     @Test
     void shouldTakeUserFilm() {
         PosterManager manager = new PosterManager(3);
@@ -47,7 +48,7 @@ class PosterManagerTest {
         manager.add(third);
         manager.add(fourth);
         PurchaseItem[] actual = manager.shouldTakeMaxFilms();
-        PurchaseItem[] expected = new PurchaseItem[]{third,second,first};
+        PurchaseItem[] expected = new PurchaseItem[]{third, second, first};
         assertArrayEquals(expected, actual);
     }
 
@@ -58,7 +59,7 @@ class PosterManagerTest {
         PurchaseItem second = new PurchaseItem(2, 3, "rivay2", 10, 8);
         manager.add(first);
         manager.add(second);
-        PurchaseItem[] expected = new PurchaseItem[]{first,second};
-        assertArrayEquals(expected,manager.getItems());
+        PurchaseItem[] expected = new PurchaseItem[]{first, second};
+        assertArrayEquals(expected, manager.getItems());
     }
 }
