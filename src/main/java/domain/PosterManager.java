@@ -9,9 +9,11 @@ public class PosterManager {
     private int maxLastFilm = 10;
     private int userSetFilm;
 
-    public PosterManager(int userSetFilm) {
+    public PosterManager(int maxLastFilm, int userSetFilm) {
+        this.maxLastFilm = maxLastFilm;
         this.userSetFilm = userSetFilm;
     }
+
 
     private PurchaseItem[] items = new PurchaseItem[0];
 
@@ -19,9 +21,6 @@ public class PosterManager {
         return items;
     }
 
-    public void setItems(PurchaseItem[] items) {
-        this.items = items;
-    }
 
     public PurchaseItem[] shouldTakeMaxFilms() {
         int tempLength = items.length;
