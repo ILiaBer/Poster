@@ -30,13 +30,13 @@ class PosterManagerTest {
         manager.add(ninth);
         manager.add(tenth);
         PurchaseItem[] actual = manager.shouldTakeMaxFilms();
-        PurchaseItem[] expected = new PurchaseItem[]{tenth, ninth, eight, seventh, sixth, fifth, fourth, third, second,first};
+        PurchaseItem[] expected = new PurchaseItem[]{tenth, ninth, eight, seventh, sixth, fifth, fourth, third, second, first};
         assertArrayEquals(expected, actual);
     }
 
     @Test
     void shouldTakeUserFilm() {
-        PosterManager manager = new PosterManager(10,3);
+        PosterManager manager = new PosterManager(3);
         PurchaseItem first = new PurchaseItem(1, 3, "rivay", 10, 8);
         PurchaseItem second = new PurchaseItem(2, 3, "rivay2", 10, 8);
         PurchaseItem third = new PurchaseItem(3, 3, "rivay3", 10, 8);
@@ -49,9 +49,22 @@ class PosterManagerTest {
         PurchaseItem[] expected = new PurchaseItem[]{third, second, first};
         assertArrayEquals(expected, actual);
     }
+
+    @Test
+    void limMoreThenFilm() {
+        PosterManager manager = new PosterManager(3);
+        PurchaseItem first = new PurchaseItem(1, 3, "rivay", 10, 8);
+        PurchaseItem second = new PurchaseItem(2, 3, "rivay2", 10, 8);
+        manager.add(first);
+        manager.add(second);
+        PurchaseItem[] actual = manager.shouldTakeMaxFilms();
+        PurchaseItem[] expected = new PurchaseItem[]{second, first};
+        assertArrayEquals(expected, actual);
+    }
+
     @Test
     void userSetMoreThanMax() {
-        PosterManager manager = new PosterManager(10, 11);
+        PosterManager manager = new PosterManager(11);
         PurchaseItem first = new PurchaseItem(1, 3, "rivay", 10, 8);
         PurchaseItem second = new PurchaseItem(2, 3, "rivay2", 10, 8);
         PurchaseItem third = new PurchaseItem(3, 3, "rivay3", 10, 8);
@@ -78,9 +91,10 @@ class PosterManagerTest {
         PurchaseItem[] expected = new PurchaseItem[]{eleventh, tenth, ninth, eight, seventh, sixth, fifth, fourth, third, second, first};
         assertArrayEquals(expected, actual);
     }
+
     @Test
     void userSetMax() {
-        PosterManager manager = new PosterManager(10, 10);
+        PosterManager manager = new PosterManager(10);
         PurchaseItem first = new PurchaseItem(1, 3, "rivay", 10, 8);
         PurchaseItem second = new PurchaseItem(2, 3, "rivay2", 10, 8);
         PurchaseItem third = new PurchaseItem(3, 3, "rivay3", 10, 8);
@@ -124,6 +138,7 @@ class PosterManagerTest {
         manager.setId(5);
         assertEquals(5, manager.getId());
     }
+
     @Test
     public void shouldChangeProductId() {
         PurchaseItem manager = new PurchaseItem();
@@ -131,6 +146,7 @@ class PosterManagerTest {
         manager.setProductId(4);
         assertEquals(4, manager.getProductId());
     }
+
     @Test
     public void shouldChangeProductName() {
         PurchaseItem manager = new PurchaseItem();
@@ -138,6 +154,7 @@ class PosterManagerTest {
         manager.setProductName("Kavaki");
         assertEquals("Kavaki", manager.getProductName());
     }
+
     @Test
     public void shouldChangeProductPrice() {
         PurchaseItem manager = new PurchaseItem();
@@ -145,6 +162,7 @@ class PosterManagerTest {
         manager.setProductPrice(100);
         assertEquals(100, manager.getProductPrice());
     }
+
     @Test
     public void shouldChangeCount() {
         PurchaseItem manager = new PurchaseItem();
