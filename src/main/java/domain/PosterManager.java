@@ -22,7 +22,7 @@ public class PosterManager {
 
     public PurchaseItem[] shouldTakeMaxFilms() {
         int tempLength = items.length;
-        if (userSetFilm > 0 && userSetFilm <= items.length) {
+        if (userSetFilm > 0 && userSetFilm < items.length) {
             tempLength = userSetFilm;
         } else if (userSetFilm > 0 && userSetFilm >= items.length){
             tempLength=items.length;
