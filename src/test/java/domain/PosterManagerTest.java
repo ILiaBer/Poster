@@ -35,6 +35,18 @@ class PosterManagerTest {
     }
 
     @Test
+    void shouldTakeMaxWithTwoFilms() {
+        PosterManager manager = new PosterManager();
+        PurchaseItem first = new PurchaseItem(1, 3, "rivay", 10, 8);
+        PurchaseItem second = new PurchaseItem(2, 3, "rivay2", 10, 8);
+        manager.add(first);
+        manager.add(second);
+        PurchaseItem[] actual = manager.shouldTakeMaxFilms();
+        PurchaseItem[] expected = new PurchaseItem[]{second, first};
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
     void shouldTakeUserFilm() {
         PosterManager manager = new PosterManager(3);
         PurchaseItem first = new PurchaseItem(1, 3, "rivay", 10, 8);
@@ -133,41 +145,41 @@ class PosterManagerTest {
 
     @Test
     public void shouldChangeId() {
-        PurchaseItem manager = new PurchaseItem();
-        assertEquals(0, manager.getId());
-        manager.setId(5);
-        assertEquals(5, manager.getId());
+        PurchaseItem purchase = new PurchaseItem();
+        assertEquals(0, purchase.getId());
+        purchase.setId(5);
+        assertEquals(5, purchase.getId());
     }
 
     @Test
     public void shouldChangeProductId() {
-        PurchaseItem manager = new PurchaseItem();
-        assertEquals(0, manager.getProductId());
-        manager.setProductId(4);
-        assertEquals(4, manager.getProductId());
+        PurchaseItem purchase = new PurchaseItem();
+        assertEquals(0, purchase.getProductId());
+        purchase.setProductId(4);
+        assertEquals(4, purchase.getProductId());
     }
 
     @Test
     public void shouldChangeProductName() {
-        PurchaseItem manager = new PurchaseItem();
-        assertEquals(null, manager.getProductName());
-        manager.setProductName("Kavaki");
-        assertEquals("Kavaki", manager.getProductName());
+        PurchaseItem purchase = new PurchaseItem();
+        assertEquals(null, purchase.getProductName());
+        purchase.setProductName("Kavaki");
+        assertEquals("Kavaki", purchase.getProductName());
     }
 
     @Test
     public void shouldChangeProductPrice() {
-        PurchaseItem manager = new PurchaseItem();
-        assertEquals(0, manager.getProductPrice());
-        manager.setProductPrice(100);
-        assertEquals(100, manager.getProductPrice());
+        PurchaseItem purchase = new PurchaseItem();
+        assertEquals(0, purchase.getProductPrice());
+        purchase.setProductPrice(100);
+        assertEquals(100, purchase.getProductPrice());
     }
 
     @Test
     public void shouldChangeCount() {
-        PurchaseItem manager = new PurchaseItem();
-        assertEquals(0, manager.getCount());
-        manager.setCount(100);
-        assertEquals(100, manager.getCount());
+        PurchaseItem purchase = new PurchaseItem();
+        assertEquals(0, purchase.getCount());
+        purchase.setCount(100);
+        assertEquals(100, purchase.getCount());
     }
 }

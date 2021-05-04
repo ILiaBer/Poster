@@ -24,9 +24,11 @@ public class PosterManager {
         int tempLength = items.length;
         if (userSetFilm > 0 && userSetFilm < items.length) {
             tempLength = userSetFilm;
-        } else if (userSetFilm > 0 && userSetFilm >= items.length){
-            tempLength=items.length;
-        }else {
+        } else if (userSetFilm > 0 && userSetFilm >= items.length) {
+            tempLength = items.length;
+        } else if (userSetFilm <= 0 && maxLastFilm > items.length) {
+            tempLength = items.length;
+        } else {
             tempLength = maxLastFilm;
         }
         PurchaseItem[] result = new PurchaseItem[tempLength];
